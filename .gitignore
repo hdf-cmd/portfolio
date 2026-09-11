@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 本地验证产生的临时文件与截图（不进仓库/不部署）
+_shots/
+_verify_shots/
+gui-test-screenshots/
+tmp_ui_verify/
+verify_pages.py
+_verify_acid_bg.py
+*.py
