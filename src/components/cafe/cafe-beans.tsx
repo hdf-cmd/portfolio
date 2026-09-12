@@ -49,9 +49,9 @@ export function CafeBeans() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-20"
+        className="object-cover opacity-35"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#120A04] via-[#120A04]/72 to-[#120A04]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#120A04] via-[#120A04]/50 to-[#120A04]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
       <motion.div
