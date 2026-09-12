@@ -11,7 +11,10 @@ export function CafeReserve() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="reserve" className="mx-auto max-w-6xl px-6 py-28">
+    <section id="reserve" className="relative mx-auto max-w-6xl px-6 py-28">
+      {/* 暖光氛围：呼应店内灯光 */}
+      <div className="pointer-events-none absolute -left-24 top-8 h-[380px] w-[380px] rounded-full bg-[#C99A5B]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-[#8B5A2B]/12 blur-[120px]" />
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

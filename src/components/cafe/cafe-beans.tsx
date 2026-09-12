@@ -42,7 +42,18 @@ const beans = [
 
 export function CafeBeans() {
   return (
-    <section id="beans" className="mx-auto max-w-6xl px-6 py-28">
+    <section id="beans" className="relative overflow-hidden py-28">
+      {/* 背景：木桌散豆低透明度垫底，暖调呼应豆单 */}
+      <Image
+        src="/cafe/bg-beans.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#120A04] via-[#120A04]/72 to-[#120A04]" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -122,6 +133,7 @@ export function CafeBeans() {
             </div>
           </motion.article>
         ))}
+      </div>
       </div>
     </section>
   );
