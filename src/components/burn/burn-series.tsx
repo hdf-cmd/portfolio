@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 
 const series = [
@@ -8,12 +10,16 @@ const series = [
     name: "力量系列",
     desc: "为深蹲架和杠铃而生。加厚车线、极限承重,陪你冲击每一个新重量。",
     items: "训练背心 · 力量腰带 · 举重鞋",
+    img: "/burn/series-force.jpg",
+    alt: "红光健身房中的杠铃深蹲",
   },
   {
     tag: "ENDURANCE",
     name: "耐力系列",
     desc: "轻盈到几乎无感的速干面料,42 公里后依然干爽贴服。",
     items: "竞速上衣 · 速干短裤 · 轻量跑鞋",
+    img: "/burn/series-endurance.jpg",
+    alt: "夜色马拉松中的奔跑者",
     hot: true,
   },
   {
@@ -21,6 +27,8 @@ const series = [
     name: "恢复系列",
     desc: "训练后的半小时,决定明天的状态。筋膜、拉伸、睡眠,一套配齐。",
     items: "筋膜球 · 拉伸带 · 冷感毛巾",
+    img: "/burn/series-revive.jpg",
+    alt: "泡沫轴筋膜放松",
   },
 ];
 
@@ -65,10 +73,20 @@ export function BurnSeries() {
             }`}
           >
             {s.hot && (
-              <span className="absolute right-5 top-5 rotate-2 rounded-sm bg-[#FF4D00] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-white">
+              <span className="absolute right-5 top-5 z-10 rotate-2 rounded-sm bg-[#FF4D00] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-white">
                 hot
               </span>
             )}
+
+            <div className="relative -mx-7 -mt-7 mb-6 h-44 overflow-hidden">
+              <Image
+                src={s.img}
+                alt={s.alt}
+                fill
+                sizes="(min-width: 768px) 360px, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
 
             <div className="font-mono text-[11px] font-bold tracking-[0.3em] text-[#FF7A1A]">
               {s.tag}

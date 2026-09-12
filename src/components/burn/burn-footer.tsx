@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function BurnFooter() {
   return (
     <footer className="border-t border-white/10">
@@ -22,9 +24,9 @@ export function BurnFooter() {
             <a href="#join" className="transition-colors hover:text-white">
               加入
             </a>
-            <a href="/#work" className="transition-colors hover:text-white">
+            <Link href="/#work" className="transition-colors hover:text-white">
               ← 返回作品集
-            </a>
+            </Link>
           </div>
         </div>
 

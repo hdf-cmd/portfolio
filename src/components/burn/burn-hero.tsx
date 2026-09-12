@@ -2,8 +2,9 @@
 
 import { motion, useScroll, useMotionValueEvent, useInView, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import Ferrofluid from "@/components/reactbits/ferrofluid";
 
 function Counter({ value }: { value: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -45,21 +46,19 @@ export function BurnHero() {
 
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden">
-      {/* React Bits Ferrofluid 铁磁流体背景（燃橙力量色） */}
-      <div className="absolute inset-0">
-        <Ferrofluid
-          className="h-full w-full"
-          colors={["#FF4D00", "#FF7A1A", "#FFB03A"]}
-          opacity={0.85}
-          speed={0.75}
-          scale={1.9}
-          turbulence={1.15}
-          flowDirection="up"
-          mouseStrength={1.1}
-          mouseRadius={0.3}
-        />
-      </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0C0C0C] to-transparent" />
+      {/* 真实健身房摄影背景：黑底杠铃 + 压暗遮罩 */}
+      <Image
+        src="/burn/hero.jpg"
+        alt="健身房地上的负重杠铃"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-[#0C0C0C]/62" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C]/70 via-transparent to-[#0C0C0C]" />
+      {/* 燃橙品牌光 */}
+      <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[460px] w-[820px] -translate-x-1/2 rounded-full bg-[#FF4D00]/16 blur-[130px]" />
 
       {/* 导航 */}
       <motion.header
@@ -73,12 +72,12 @@ export function BurnHero() {
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-5">
-            <a
+            <Link
               href="/#work"
               className="flex items-center gap-1 text-sm text-white/50 transition-colors hover:text-white"
             >
               <span aria-hidden>←</span> 作品集
-            </a>
+            </Link>
             <a href="#" className="flex items-center gap-2">
               <span className="flex h-7 w-7 rotate-45 items-center justify-center rounded-sm bg-[#FF4D00] text-xs font-black text-white">
                 <span className="-rotate-45">B</span>

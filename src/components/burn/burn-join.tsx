@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -32,7 +34,18 @@ export function BurnJoin() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="join" className="mx-auto max-w-6xl px-6 py-28">
+    <section id="join" className="relative overflow-hidden py-28">
+      {/* 背景：训练场景低透明度垫底，呼应"今天就来" */}
+      <Image
+        src="/burn/bg-gym.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-30"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/60 to-[#0C0C0C]" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -106,6 +119,7 @@ export function BurnJoin() {
             </a>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );
