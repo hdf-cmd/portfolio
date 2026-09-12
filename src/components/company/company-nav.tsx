@@ -2,7 +2,9 @@
 
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { ChengcheLogo } from "./chengche-logo";
 
 const links = [
   { label: "产品", href: "#features" },
@@ -34,16 +36,14 @@ export function CompanyNav() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-5">
-          <a
+          <Link
             href="/#work"
             className="hidden items-center gap-1 text-sm text-[#5C6675] transition-colors hover:text-[#E6EAF2] sm:flex"
           >
             <span aria-hidden>←</span> 作品集
-          </a>
+          </Link>
           <a href="#" className="flex items-center gap-2.5 text-base font-semibold text-[#E6EAF2]">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#38BDF8] to-[#818CF8] text-xs font-bold text-white">
-              C
-            </span>
+            <ChengcheLogo className="h-7 w-7" />
             澄澈科技
           </a>
         </div>
@@ -121,13 +121,13 @@ export function CompanyNav() {
             >
               免费试用
             </a>
-            <a
+            <Link
               href="/#work"
               onClick={() => setMenuOpen(false)}
               className="mt-1 rounded-lg px-3 py-3 text-center text-sm text-[#5C6675]"
             >
               ← 返回作品集
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}

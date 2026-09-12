@@ -1,20 +1,30 @@
 "use client";
 
 import { motion } from "motion/react";
+import {
+  Activity,
+  Blocks,
+  Braces,
+  MonitorSmartphone,
+  Plug,
+  ShieldCheck,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 
 // Bento 特性网格：两大卡（带产品内视觉）+ 五小卡
 const smallFeatures = [
-  { word: "搭", title: "拖拽搭建", desc: "无需写代码,拖组件、连数据源,十分钟出一块看板。" },
-  { word: "联", title: "100+ 集成", desc: "数据库、仓库、SaaS 一把连,一处汇总所有数据。" },
-  { word: "盾", title: "企业级安全", desc: "端到端加密、细粒度权限、完整审计日志。" },
-  { word: "端", title: "多端协作", desc: "桌面、平板、手机随时查看与分享,团队零障碍。" },
-  { word: "开", title: "开放 API", desc: "REST 与 Webhook 全开放,嵌入你的产品毫无压力。" },
+  { icon: Blocks, title: "拖拽搭建", desc: "无需写代码,拖组件、连数据源,十分钟出一块看板。" },
+  { icon: Plug, title: "100+ 集成", desc: "数据库、仓库、SaaS 一把连,一处汇总所有数据。" },
+  { icon: ShieldCheck, title: "企业级安全", desc: "端到端加密、细粒度权限、完整审计日志。" },
+  { icon: MonitorSmartphone, title: "多端协作", desc: "桌面、平板、手机随时查看与分享,团队零障碍。" },
+  { icon: Braces, title: "开放 API", desc: "REST 与 Webhook 全开放,嵌入你的产品毫无压力。" },
 ];
 
-function WordBadge({ word }: { word: string }) {
+function FeatureBadge({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#38BDF8]/25 to-[#818CF8]/25 text-xs font-semibold text-[#7DD3FC]">
-      {word}
+    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#38BDF8]/25 to-[#818CF8]/25 text-[#7DD3FC]">
+      <Icon className="h-4 w-4" strokeWidth={2} />
     </span>
   );
 }
@@ -50,10 +60,10 @@ export function CompanyFeatures() {
           className="flex flex-col justify-between rounded-2xl border border-[#8A94A6]/12 bg-[#0C1018] p-6 md:col-span-2"
         >
           <div>
-            <WordBadge word="流" />
+            <FeatureBadge icon={Activity} />
             <h3 className="mt-4 text-lg font-medium text-[#E6EAF2]">实时数据流</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#8A94A6]">
-              数据变化秒级上屏,仪表盘永远是最新状态——不是"上次更新于昨天"。
+              数据变化秒级上屏,仪表盘永远是最新状态——不是「上次更新于昨天」。
             </p>
           </div>
           <div className="mt-6 space-y-2 rounded-lg border border-[#8A94A6]/12 bg-white/[0.02] p-3 font-mono text-[11px]">
@@ -86,7 +96,7 @@ export function CompanyFeatures() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="rounded-2xl border border-[#8A94A6]/12 bg-[#0C1018] p-6 transition-colors hover:border-[#8A94A6]/25"
         >
-          <WordBadge word={smallFeatures[0].word} />
+          <FeatureBadge icon={smallFeatures[0].icon} />
           <h3 className="mt-4 text-base font-medium text-[#E6EAF2]">{smallFeatures[0].title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-[#8A94A6]">{smallFeatures[0].desc}</p>
         </motion.div>
@@ -99,7 +109,7 @@ export function CompanyFeatures() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="rounded-2xl border border-[#8A94A6]/12 bg-[#0C1018] p-6 transition-colors hover:border-[#8A94A6]/25"
         >
-          <WordBadge word={smallFeatures[1].word} />
+          <FeatureBadge icon={smallFeatures[1].icon} />
           <h3 className="mt-4 text-base font-medium text-[#E6EAF2]">{smallFeatures[1].title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-[#8A94A6]">{smallFeatures[1].desc}</p>
         </motion.div>
@@ -113,7 +123,7 @@ export function CompanyFeatures() {
           className="flex flex-col justify-between rounded-2xl border border-[#8A94A6]/12 bg-[#0C1018] p-6 md:col-span-2"
         >
           <div>
-            <WordBadge word="察" />
+            <FeatureBadge icon={Sparkles} />
             <h3 className="mt-4 text-lg font-medium text-[#E6EAF2]">AI 智能洞察</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#8A94A6]">
               不用自己盯报表。异常发生前,澄澈已经在告警中心把原因分析好了。
@@ -145,14 +155,14 @@ export function CompanyFeatures() {
         {/* 小卡 3-5 */}
         {smallFeatures.slice(2).map((f, i) => (
           <motion.div
-            key={f.word}
+            key={f.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
             className="rounded-2xl border border-[#8A94A6]/12 bg-[#0C1018] p-6 transition-colors hover:border-[#8A94A6]/25"
           >
-            <WordBadge word={f.word} />
+            <FeatureBadge icon={f.icon} />
             <h3 className="mt-4 text-base font-medium text-[#E6EAF2]">{f.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#8A94A6]">{f.desc}</p>
           </motion.div>

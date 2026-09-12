@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+import { ChengcheLogo } from "./chengche-logo";
+
 export function CompanyFooter() {
   const columns = [
     {
@@ -24,9 +28,7 @@ export function CompanyFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2 text-base font-semibold text-[#E6EAF2]">
-              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-[#38BDF8] to-[#818CF8] text-xs font-bold text-white">
-                C
-              </span>
+              <ChengcheLogo className="h-6 w-6" />
               澄澈科技
             </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#5C6675]">
@@ -58,9 +60,9 @@ export function CompanyFooter() {
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#8A94A6]/12 pt-6 font-mono text-[10px] text-[#5C6675] sm:flex-row">
           <p>© 2026 澄澈科技 · 沪 ICP 备 2026xxxxx 号</p>
           <div className="flex items-center gap-4">
-            <a href="/#work" className="transition-colors hover:text-[#8A94A6]">
+            <Link href="/#work" className="transition-colors hover:text-[#8A94A6]">
               ← 返回作品集
-            </a>
+            </Link>
             <span>项目 D · 官网落地页</span>
           </div>
         </div>

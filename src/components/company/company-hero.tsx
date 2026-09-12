@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { ChengcheLogo } from "./chengche-logo";
 
 // —— 实时跳动 KPI：每 1.8s 模拟一次数据刷新（活仪表盘的信号）——
 function LiveKpi() {
@@ -137,9 +138,7 @@ export function CompanyHero() {
             {/* 侧边栏（桌面可见） */}
             <aside className="hidden w-40 shrink-0 border-r border-[#8A94A6]/12 p-3 lg:block">
               <div className="mb-4 flex items-center gap-2 px-1.5">
-                <span className="flex h-5 w-5 items-center justify-center rounded bg-gradient-to-br from-[#38BDF8] to-[#818CF8] text-[10px] font-bold text-white">
-                  C
-                </span>
+                <ChengcheLogo className="h-5 w-5" />
                 <span className="text-xs font-medium text-[#E6EAF2]">澄澈</span>
               </div>
               <div className="space-y-0.5">

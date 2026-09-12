@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 
 const testimonials = [
@@ -8,24 +10,21 @@ const testimonials = [
       "上线第一周,我们把 14 份周报压缩成一块实时仪表盘。管理层再也没问过\"数据什么时候出\"。",
     name: "林知远",
     role: "数据负责人 · 云帆控股",
-    initial: "林",
-    hue: "from-[#38BDF8] to-[#2563EB]",
+    avatar: "/avatars/lin-zhiyuan.jpg",
   },
   {
     quote:
       "深夜值班最怕漏告警。澄澈的智能洞察在流量异常前 20 分钟就提示了我们,像多了半个运维。",
     name: "苏晓芸",
     role: "SRE 经理 · 北辰能源",
-    initial: "苏",
-    hue: "from-[#818CF8] to-[#C084FC]",
+    avatar: "/avatars/su-xiaoyun-v2.jpg",
   },
   {
     quote:
       "拖拽就能搭出高层要的看板,业务同学自己会用。BI 团队终于有时间做真正的分析了。",
     name: "陈墨",
     role: "商业分析总监 · 拾光零售",
-    initial: "陈",
-    hue: "from-[#F59E0B] to-[#F97316]",
+    avatar: "/avatars/chen-mo.jpg",
   },
 ];
 
@@ -61,11 +60,13 @@ export function CompanyTestimonials() {
               “{t.quote}”
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3">
-              <span
-                className={`flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${t.hue} text-xs font-semibold text-white`}
-              >
-                {t.initial}
-              </span>
+              <Image
+                src={t.avatar}
+                alt={t.name}
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full object-cover"
+              />
               <div>
                 <div className="text-sm font-medium text-[#E6EAF2]">{t.name}</div>
                 <div className="font-mono text-[10px] text-[#5C6675]">{t.role}</div>
