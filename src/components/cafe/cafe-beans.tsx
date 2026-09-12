@@ -51,7 +51,7 @@ export function CafeBeans() {
         className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"
       >
         <div>
-          <div className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
+          <div className="text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
             本季豆单
           </div>
           <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-[#F5EADA] sm:text-4xl">
@@ -78,7 +78,7 @@ export function CafeBeans() {
             }`}
           >
             {bean.featured && (
-              <span className="absolute right-5 top-5 z-10 rounded-full bg-[#C99A5B] px-2.5 py-0.5 font-mono text-[10px] text-[#1A0F06]">
+              <span className="absolute right-5 top-5 z-10 rounded-full bg-[#C99A5B] px-2.5 py-0.5 text-[10px] text-[#1A0F06]">
                 镇店之选
               </span>
             )}
@@ -93,7 +93,7 @@ export function CafeBeans() {
               />
             </div>
 
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#A38B6E]">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-[#A38B6E]">
               {bean.origin} · {bean.altitude}
             </div>
             <h3 className="mt-3 font-serif text-2xl font-semibold text-[#F5EADA]">

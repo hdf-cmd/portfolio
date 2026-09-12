@@ -39,7 +39,7 @@ export function CafeReserve() {
         </div>
 
         <div className="relative mx-auto max-w-lg text-center">
-          <div className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
+          <div className="text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
             门店预约
           </div>
           <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-[#F5EADA] sm:text-4xl">
@@ -96,7 +96,7 @@ export function CafeReserve() {
             </form>
           )}
 
-          <p className="mt-5 font-mono text-[10px] text-[#8A7358]">
+          <p className="mt-5 text-[10px] text-[#8A7358]">
             concept store · 12:00 – 02:00 · 每周二店休
           </p>
           </div>

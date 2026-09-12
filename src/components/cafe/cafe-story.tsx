@@ -39,7 +39,7 @@ export function CafeStory() {
         transition={{ duration: 0.7 }}
         className="max-w-2xl"
       >
-        <div className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
+        <div className="text-[11px] uppercase tracking-[0.32em] text-[#C99A5B]">
           一杯咖啡的路
         </div>
         <h2 className="mt-5 font-serif text-3xl font-semibold tracking-tight text-[#F5EADA] sm:text-4xl">

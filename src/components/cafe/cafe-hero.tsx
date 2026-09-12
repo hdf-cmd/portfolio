@@ -90,7 +90,7 @@ export function CafeHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#E8C69B]/80"
+          className="text-[11px] uppercase tracking-[0.32em] text-[#E8C69B]/80"
         >
           云南 · 高山庄园 · 手工烘焙
         </motion.div>
