@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import Aurora from "@/components/reactbits/aurora";
 import { SteamSignature } from "@/components/cafe/steam-signature";
 
 const links = [
@@ -22,17 +23,18 @@ export function CafeHero() {
 
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden">
-      {/* React Bits Aurora 极光背景（烘焙暖色配置） */}
-      <div className="absolute inset-0">
-        <Aurora
-          colorStops={["#241105", "#A5712F", "#F2D9B4"]}
-          amplitude={1.4}
-          blend={0.45}
-          speed={0.6}
-        />
-      </div>
-      {/* 底部渐变衔接深咖底 */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#120A04] to-transparent" />
+      {/* 真实咖啡摄影背景 + 压暗遮罩，保证文案可读 */}
+      <Image
+        src="/cafe/hero.jpg"
+        alt="盛着咖啡豆的白瓷杯"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-[#120A04]/72" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#120A04]/55 via-transparent to-[#120A04]" />
+      <div className="pointer-events-none absolute -left-32 top-1/3 h-[420px] w-[420px] rounded-full bg-[#C99A5B]/14 blur-[130px]" />
 
       {/* 导航 */}
       <motion.header
@@ -46,12 +48,12 @@ export function CafeHero() {
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-5">
-            <a
+            <Link
               href="/#work"
               className="flex items-center gap-1 text-sm text-[#A38B6E] transition-colors hover:text-[#F5EADA]"
             >
               <span aria-hidden>←</span> 作品集
-            </a>
+            </Link>
             <a href="#" className="flex items-center gap-2.5">
               <SteamSignature className="h-8 w-8" />
               <span className="font-serif text-lg font-semibold tracking-wide text-[#F5EADA]">

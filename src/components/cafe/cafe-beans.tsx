@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 
 const beans = [
@@ -10,6 +12,8 @@ const beans = [
     notes: "茉莉 · 柑橘 · 红糖尾韵",
     roast: "中度烘焙",
     price: "¥128 / 250g",
+    img: "/cafe/beans-1.jpg",
+    alt: "白瓷杯中的浅焙咖啡豆",
     featured: true,
   },
   {
@@ -19,6 +23,8 @@ const beans = [
     notes: "熟莓 · 黑巧 · 坚果",
     roast: "中深烘焙",
     price: "¥118 / 250g",
+    img: "/cafe/beans-2.jpg",
+    alt: "深焙咖啡豆纹理",
     featured: false,
   },
   {
@@ -28,6 +34,8 @@ const beans = [
     notes: "柠檬草 · 绿茶 · 蜂蜜",
     roast: "浅度烘焙",
     price: "¥138 / 250g",
+    img: "/cafe/beans-3.jpg",
+    alt: "咖啡豆微距特写",
     featured: false,
   },
 ];
@@ -70,10 +78,20 @@ export function CafeBeans() {
             }`}
           >
             {bean.featured && (
-              <span className="absolute right-5 top-5 rounded-full bg-[#C99A5B] px-2.5 py-0.5 font-mono text-[10px] text-[#1A0F06]">
+              <span className="absolute right-5 top-5 z-10 rounded-full bg-[#C99A5B] px-2.5 py-0.5 font-mono text-[10px] text-[#1A0F06]">
                 镇店之选
               </span>
             )}
+
+            <div className="relative -mx-7 -mt-7 mb-6 h-44 overflow-hidden">
+              <Image
+                src={bean.img}
+                alt={bean.alt}
+                fill
+                sizes="(min-width: 768px) 360px, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
 
             <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#A38B6E]">
               {bean.origin} · {bean.altitude}

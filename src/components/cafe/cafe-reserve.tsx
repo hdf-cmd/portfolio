@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -15,8 +17,22 @@ export function CafeReserve() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7 }}
-        className="relative overflow-hidden rounded-3xl border border-[#C99A5B]/20 bg-gradient-to-br from-[#241105] via-[#1A0F06] to-[#120A04] px-8 py-16 sm:px-16"
+        className="relative overflow-hidden rounded-3xl border border-[#C99A5B]/20 bg-gradient-to-br from-[#241105] via-[#1A0F06] to-[#120A04]"
       >
+        <div className="grid md:grid-cols-2">
+          {/* 门店实景 */}
+          <div className="relative min-h-[280px] md:min-h-full">
+            <Image
+              src="/cafe/reserve.jpg"
+              alt="屿雾咖啡门店吧台,暖光氛围"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1A0F06]/40 md:bg-gradient-to-r" />
+          </div>
+
+          <div className="relative px-8 py-16 sm:px-14">
         {/* 角落桌号装饰 */}
         <div className="pointer-events-none absolute -right-8 -top-8 font-serif text-[180px] font-semibold leading-none text-[#C99A5B]/6">
           屿
@@ -83,6 +99,8 @@ export function CafeReserve() {
           <p className="mt-5 font-mono text-[10px] text-[#8A7358]">
             concept store · 12:00 – 02:00 · 每周二店休
           </p>
+          </div>
+          </div>
         </div>
       </motion.div>
     </section>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function CafeFooter() {
   return (
     <footer className="border-t border-[#C99A5B]/15">
@@ -22,12 +24,12 @@ export function CafeFooter() {
             <a href="#reserve" className="transition-colors hover:text-[#F5EADA]">
               预约
             </a>
-            <a
+            <Link
               href="/#work"
               className="transition-colors hover:text-[#F5EADA]"
             >
               ← 返回作品集
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "motion/react";
 
 // 从豆到杯的三段工序叙事——工序是真实序列，编号承载顺序信息
@@ -8,16 +10,22 @@ const steps = [
     no: "壹",
     title: "山间",
     desc: "云雾在林间穿行十二个小时,才够浇透一片咖啡林。海拔 1800 米的昼夜温差,让果实慢慢聚糖,风味因此深邃。",
+    img: "/cafe/story-farm.jpg",
+    alt: "云雾缭绕的高山种植园",
   },
   {
     no: "贰",
     title: "火里",
     desc: "每一次烘焙,烘焙师都在和火对话。曲线上的一分钟之差,决定一杯咖啡是果香清亮,还是焦糖绵长。",
+    img: "/cafe/story-roast.jpg",
+    alt: "烘焙师从烘焙机中捧起咖啡豆",
   },
   {
     no: "叁",
     title: "杯中",
     desc: "研磨、注水、等待三十秒的闷蒸。当香气升起,山间的风、火候的耐心,都在这一杯里了。",
+    img: "/cafe/story-brew.jpg",
+    alt: "咖啡师手冲注水",
   },
 ];
 
@@ -47,12 +55,21 @@ export function CafeStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="relative border-t border-[#C99A5B]/20 pt-6"
+            className="group relative border-t border-[#C99A5B]/20 pt-6"
           >
-            <span className="font-serif text-5xl font-semibold text-[#C99A5B]/30">
+            <div className="relative h-44 overflow-hidden rounded-xl border border-[#C99A5B]/15">
+              <Image
+                src={step.img}
+                alt={step.alt}
+                fill
+                sizes="(min-width: 768px) 360px, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <span className="mt-5 inline-block font-serif text-4xl font-semibold text-[#C99A5B]/30">
               {step.no}
             </span>
-            <h3 className="mt-3 font-serif text-xl font-semibold text-[#F5EADA]">
+            <h3 className="mt-2 font-serif text-xl font-semibold text-[#F5EADA]">
               {step.title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[#A38B6E]">{step.desc}</p>
