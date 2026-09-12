@@ -38,11 +38,8 @@ const kpis = [
 export function CompanyHero() {
   return (
     <section className="relative overflow-hidden px-6 pb-20 pt-36 sm:pt-44">
-      {/* 背景：细腻网格 + 顶部品牌光 */}
-      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.05)_1px,transparent_1px)] [background-size:56px_56px]" />
+      {/* 顶部品牌光：网格已上移至 page 级贯穿全页，此处只留首屏光晕 */}
       <div className="pointer-events-none absolute left-1/2 top-[-220px] h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[#2563EB]/18 blur-[140px]" />
-      {/* 缓坡渐隐：网格与光晕向下缓慢衰减，避免进入内容区时视觉断层 */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[520px] [background-image:linear-gradient(to_top,#0A0D14_0%,rgba(10,13,20,0.75)_38%,rgba(10,13,20,0.3)_68%,transparent_100%)]" />
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center">
         <motion.div

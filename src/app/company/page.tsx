@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function CompanyPage() {
   return (
-    <main className="min-h-screen bg-[#0A0D14] text-[#E6EAF2]">
+    <main className="min-h-screen bg-[#0A0D14] bg-fixed text-[#E6EAF2] [background-image:linear-gradient(to_right,rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.05)_1px,transparent_1px)] [background-size:56px_56px]">
       <CompanyNav />
       <CompanyHero />
       <CompanyLogoCloud />
