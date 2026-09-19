@@ -84,3 +84,17 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* 无障碍：用户偏好减少动态时，收敛 CSS 动画与过渡（JS 动画后续如需降级用 MotionConfig reducedMotion="user"） */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+  }
+}

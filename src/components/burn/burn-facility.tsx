@@ -47,9 +47,9 @@ export function BurnFacility() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-22"
+        className="object-cover opacity-38"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/58 to-[#0C0C0C]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/35 to-[#0C0C0C]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
       <motion.div

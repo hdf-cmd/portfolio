@@ -152,9 +152,9 @@ export function KidsFooter() {
               <span className="text-base font-black tracking-wide">小满美术教室</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/60">
-              梧桐区槐安路 42 号院 · 二楼
+              西湖区南山路 42 号 · 二楼
               <br />
-              0551-6642-4200(周二至周日 9:00–19:00)
+              0571-8642-4200(周二至周日 9:00–19:00)
             </p>
           </div>
           <div>
@@ -176,7 +176,7 @@ export function KidsFooter() {
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-white/10 pt-6 text-[10px] text-white/40 sm:flex-row">
           <p>© 2026 小满美术教室 · 保留所有权利</p>
-          <p>客户项目 · 品牌官网设计 · 图片来自 Openverse / Wikimedia Commons(CC 授权)</p>
+          <p>客户项目 · 品牌官网设计 · 图片来自 Unsplash / Wikimedia Commons（CC 授权）</p>
         </div>
       </div>
     </footer>

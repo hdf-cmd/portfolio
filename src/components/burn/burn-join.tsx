@@ -41,9 +41,9 @@ export function BurnJoin() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-30"
+        className="object-cover opacity-34"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/60 to-[#0C0C0C]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/45 to-[#0C0C0C]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
       <motion.div

@@ -127,7 +127,7 @@ export function CafeBrew() {
               {m.params.map(([k, v]) => (
                 <div key={k} className="flex items-baseline justify-between text-sm">
                   <dt className="text-[#8A7358]">{k}</dt>
-                  <dd className="text-sm font-medium tabular-nums text-[#E8C69B]">
+                  <dd className="text-sm tabular-nums text-[#A38B6E]">
                     {v}
                   </dd>
                 </div>
