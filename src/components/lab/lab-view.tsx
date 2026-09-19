@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { animate } from "animejs";
+import { LabPrinciples } from "@/components/lab/lab-principles";
+import { cn } from "@/lib/utils";
 
 // 项目 C：动效对比实验室
 // 同一个「弹跳 + 变色」动画，分别用三种方式实现，直观对比
@@ -113,19 +115,49 @@ function MotionDemo() {
 
 export function LabView() {
   const demos = [CssDemo, AnimeDemo, MotionDemo];
+  const [mode, setMode] = useState<"compare" | "principles">("compare");
 
   return (
     <section className="mx-auto max-w-6xl px-6 pb-24 pt-28">
       <div className="text-center">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          动效<span className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] bg-clip-text text-transparent">对比实验室</span>
+          动效<span className="bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] bg-clip-text text-transparent">实验室</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-[#a1a1aa]">
-          同一个「弹跳 + 变色」动画，分别用纯 CSS、Anime.js、Motion 实现，
-          直观对比三种方式的实现路径与适用场景。
+          {mode === "compare"
+            ? "同一个「弹跳 + 变色」动画，分别用纯 CSS、Anime.js、Motion 实现，直观对比三种方式的实现路径与适用场景。"
+            : "迪士尼动画十二原理逐条做成可交互小样 —— 动效不只是「会动」，而是知道为什么这么动。"}
         </p>
+        <div className="mt-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] p-1">
+          {(
+            [
+              { id: "compare", label: "三引擎对比" },
+              { id: "principles", label: "动画十二原理" },
+            ] as const
+          ).map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setMode(t.id)}
+              className={cn(
+                "rounded-full px-5 py-2 text-sm transition-all",
+                mode === t.id
+                  ? "bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] font-semibold text-white"
+                  : "text-[#a1a1aa] hover:text-white",
+              )}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
       </div>
 
+      {mode === "principles" ? (
+        <div className="mt-12">
+          <LabPrinciples />
+        </div>
+      ) : (
+        <>
       <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {meta.map((m, i) => {
           const Demo = demos[i];
@@ -194,6 +226,8 @@ export function LabView() {
           </div>
         </div>
       </motion.div>
+        </>
+      )}
     </section>
   );
 }

@@ -3,9 +3,9 @@ import { LabNav } from "@/components/lab/lab-nav";
 import { LabView } from "@/components/lab/lab-view";
 
 export const metadata: Metadata = {
-  title: "动效对比实验室 | 黄栋斐",
+  title: "动效实验室 | 黄栋斐",
   description:
-    "项目 C：同一动效分别用纯 CSS、Anime.js、Motion 三种方式实现，量化对比帧率与代码量，展示工程判断力。",
+    "项目 C：动效对比实验室 —— 三引擎实现对比 + 迪士尼动画十二原理可交互小样，展示动效工程与理论功底。",
 };
 
 export default function LabPage() {

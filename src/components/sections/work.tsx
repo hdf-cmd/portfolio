@@ -48,6 +48,20 @@ const projects = [
     href: "/burn",
     tags: ["真实摄影", "Motion", "交互筛选"],
   },
+  {
+    title: "栖野湖山 · 民宿官网",
+    desc: "客户项目 · 明亮系高山湖泊民宿站:房型 + 预订表单 + 实拍画廊",
+    status: "客户项目",
+    href: "/stay",
+    tags: ["明亮色系", "表单交互", "真实摄影"],
+  },
+  {
+    title: "小满美术教室 · 培训官网",
+    desc: "客户项目 · 少儿美术品牌站:分龄课程 + 作品墙 + 试课报名",
+    status: "客户项目",
+    href: "/kids",
+    tags: ["活泼排版", "表单交互", "真实摄影"],
+  },
 ];
 
 export function Work() {
