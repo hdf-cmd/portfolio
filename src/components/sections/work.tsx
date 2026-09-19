@@ -36,17 +36,17 @@ const projects = [
   },
   {
     title: "屿雾咖啡 · 品牌官网",
-    desc: "客户项目 · 暖调极光背景的高山咖啡品牌官网",
+    desc: "客户项目 · 三页制高山咖啡品牌站:主页 + 菜单 + 门店",
     status: "客户项目",
     href: "/cafe",
-    tags: ["React Bits · Aurora", "Anime.js"],
+    tags: ["真实摄影", "Motion", "Anime.js"],
   },
   {
     title: "燃点运动 · 品牌官网",
-    desc: "客户项目 · 铁磁流体背景的运动品牌官网",
+    desc: "客户项目 · 四页制运动品牌站:主页 + 课程表 + 教练 + 价格",
     status: "客户项目",
     href: "/burn",
-    tags: ["React Bits · Ferrofluid", "Motion"],
+    tags: ["真实摄影", "Motion", "交互筛选"],
   },
 ];
 

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { BurnHero } from "@/components/burn/burn-hero";
 import { BurnSeries } from "@/components/burn/burn-series";
+import { BurnFacility } from "@/components/burn/burn-facility";
 import { BurnMarquee } from "@/components/burn/burn-marquee";
+import { BurnStories } from "@/components/burn/burn-stories";
 import { BurnJoin } from "@/components/burn/burn-join";
 import { BurnFooter } from "@/components/burn/burn-footer";
 
@@ -16,7 +18,9 @@ export default function BurnPage() {
     <main className="min-h-screen bg-[#0C0C0C] text-white">
       <BurnHero />
       <BurnSeries />
+      <BurnFacility />
       <BurnMarquee />
+      <BurnStories />
       <BurnJoin />
       <BurnFooter />
     </main>

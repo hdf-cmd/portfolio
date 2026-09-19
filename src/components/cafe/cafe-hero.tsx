@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
 import { SteamSignature } from "@/components/cafe/steam-signature";
 
 const links = [
-  { label: "豆源", href: "#beans" },
+  { label: "豆单", href: "#beans" },
   { label: "故事", href: "#story" },
-  { label: "预约", href: "#reserve" },
+  { label: "菜单", href: "/cafe/menu" },
+  { label: "门店", href: "/cafe/store" },
 ];
 
 export function CafeHero() {
@@ -65,13 +66,13 @@ export function CafeHero() {
           <div className="flex items-center gap-6">
             <div className="hidden items-center gap-6 md:flex">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="text-sm text-[#A38B6E] transition-colors hover:text-[#F5EADA]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
             <a

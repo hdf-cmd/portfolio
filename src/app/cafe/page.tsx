@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { CafeHero } from "@/components/cafe/cafe-hero";
 import { CafeStory } from "@/components/cafe/cafe-story";
 import { CafeBeans } from "@/components/cafe/cafe-beans";
+import { CafeBrew } from "@/components/cafe/cafe-brew";
+import { CafeSubscribe } from "@/components/cafe/cafe-subscribe";
 import { CafeReserve } from "@/components/cafe/cafe-reserve";
 import { CafeFooter } from "@/components/cafe/cafe-footer";
 
@@ -17,6 +19,8 @@ export default function CafePage() {
       <CafeHero />
       <CafeStory />
       <CafeBeans />
+      <CafeBrew />
+      <CafeSubscribe />
       <CafeReserve />
       <CafeFooter />
     </main>

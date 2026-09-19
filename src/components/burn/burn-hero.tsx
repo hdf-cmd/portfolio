@@ -31,9 +31,10 @@ function Counter({ value }: { value: number }) {
 }
 
 const links = [
-  { label: "系列", href: "#series" },
-  { label: "计划", href: "#plans" },
-  { label: "加入", href: "#join" },
+  { label: "课程表", href: "/burn/classes" },
+  { label: "教练", href: "/burn/coaches" },
+  { label: "价格", href: "/burn/pricing" },
+  { label: "装备", href: "#series" },
 ];
 
 export function BurnHero() {
@@ -91,13 +92,13 @@ export function BurnHero() {
           <div className="flex items-center gap-6">
             <div className="hidden items-center gap-7 md:flex">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="text-sm font-medium text-white/60 transition-colors hover:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
             <a

@@ -15,15 +15,18 @@ export function BurnFooter() {
           </div>
 
           <div className="flex flex-wrap items-center gap-7 text-sm font-medium text-white/50">
-            <a href="#series" className="transition-colors hover:text-white">
-              系列
-            </a>
-            <a href="#plans" className="transition-colors hover:text-white">
-              计划
-            </a>
-            <a href="#join" className="transition-colors hover:text-white">
-              加入
-            </a>
+            <Link href="/burn/classes" className="transition-colors hover:text-white">
+              课程表
+            </Link>
+            <Link href="/burn/coaches" className="transition-colors hover:text-white">
+              教练
+            </Link>
+            <Link href="/burn/pricing" className="transition-colors hover:text-white">
+              价格
+            </Link>
+            <Link href="/burn#series" className="transition-colors hover:text-white">
+              装备
+            </Link>
             <Link href="/#work" className="transition-colors hover:text-white">
               ← 返回作品集
             </Link>

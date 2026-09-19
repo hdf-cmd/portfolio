@@ -15,15 +15,18 @@ export function CafeFooter() {
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-sm text-[#A38B6E]">
-            <a href="#beans" className="transition-colors hover:text-[#F5EADA]">
+            <Link href="/cafe#beans" className="transition-colors hover:text-[#F5EADA]">
               豆单
-            </a>
-            <a href="#story" className="transition-colors hover:text-[#F5EADA]">
-              故事
-            </a>
-            <a href="#reserve" className="transition-colors hover:text-[#F5EADA]">
+            </Link>
+            <Link href="/cafe/menu" className="transition-colors hover:text-[#F5EADA]">
+              菜单
+            </Link>
+            <Link href="/cafe/store" className="transition-colors hover:text-[#F5EADA]">
+              门店
+            </Link>
+            <Link href="/cafe#reserve" className="transition-colors hover:text-[#F5EADA]">
               预约
-            </a>
+            </Link>
             <Link
               href="/#work"
               className="transition-colors hover:text-[#F5EADA]"
