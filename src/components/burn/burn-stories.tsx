@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 
 const stories = [
@@ -38,6 +39,15 @@ const stories = [
 export function BurnStories() {
   return (
     <section id="stories" className="relative overflow-hidden py-28">
+      {/* 背景：夜跑实拍低透明度垫底,呼应'跑下去日子会变'的主题 */}
+      <Image
+        src="/burn/series-endurance.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/62 to-[#0C0C0C]" />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[380px] w-[720px] -translate-x-1/2 rounded-full bg-[#FF4D00]/8 blur-[140px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">

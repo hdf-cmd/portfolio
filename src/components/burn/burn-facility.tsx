@@ -40,7 +40,18 @@ const zones = [
 
 export function BurnFacility() {
   return (
-    <section id="facility" className="mx-auto max-w-6xl px-6 py-28">
+    <section id="facility" className="relative overflow-hidden py-28">
+      {/* 背景：器械区实拍低透明度垫底,呼应场馆主题 */}
+      <Image
+        src="/burn/bg-gym.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-22"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C] via-[#0C0C0C]/58 to-[#0C0C0C]" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -94,6 +105,7 @@ export function BurnFacility() {
             </div>
           </motion.article>
         ))}
+      </div>
       </div>
     </section>
   );
