@@ -62,6 +62,13 @@ const projects = [
     href: "/kids",
     tags: ["活泼排版", "表单交互", "真实摄影"],
   },
+  {
+    title: "双叶儿童口腔 · 专科官网",
+    desc: "客户项目 · 0–14 岁连锁齿科站:分龄路线 + 联动算价 + 预约表单",
+    status: "客户项目",
+    href: "/dental",
+    tags: ["冷调明亮", "医疗合规文案", "真实摄影"],
+  },
 ];
 
 export function Work() {
