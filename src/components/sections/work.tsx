@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { SpotlightCard } from "@/components/acme/spotlight-card";
 import { PulseLoader } from "@/components/uiverse/pulse-loader";
@@ -11,6 +12,7 @@ const projects = [
     desc: "当前主站 · 整合五大动画库的叙事型单页",
     status: "进行中",
     href: "/",
+    thumb: "/work/root.jpg",
     tags: ["Motion", "Anime.js", "Aceternity", "React Bits", "Uiverse"],
   },
 {
@@ -18,6 +20,7 @@ const projects = [
     desc: "Web Audio 实时频谱 + 手势交互的硬核 Demo",
     status: "个人项目",
     href: "/player",
+    thumb: "/work/player.jpg",
     tags: ["Anime.js", "Motion", "Web Audio"],
   },
   {
@@ -25,6 +28,7 @@ const projects = [
     desc: "CSS / Anime.js / Motion 同效果实现对比",
     status: "个人项目",
     href: "/lab",
+    thumb: "/work/lab.jpg",
     tags: ["性能", "工程化"],
   },
   {
@@ -32,6 +36,7 @@ const projects = [
     desc: "服务商业转化的品牌官网,克制而专业",
     status: "概念项目",
     href: "/company",
+    thumb: "/work/company.jpg",
     tags: ["Aceternity", "Motion"],
   },
   {
@@ -39,6 +44,7 @@ const projects = [
     desc: "概念品牌 · 三页制高山咖啡品牌站:主页 + 菜单 + 门店",
     status: "概念项目",
     href: "/cafe",
+    thumb: "/work/cafe.jpg",
     tags: ["真实摄影", "Motion", "Anime.js"],
   },
   {
@@ -46,6 +52,7 @@ const projects = [
     desc: "概念品牌 · 四页制运动品牌站:主页 + 课程表 + 教练 + 价格",
     status: "概念项目",
     href: "/burn",
+    thumb: "/work/burn.jpg",
     tags: ["真实摄影", "Motion", "交互筛选"],
   },
   {
@@ -53,6 +60,7 @@ const projects = [
     desc: "概念品牌 · 明亮系高山湖泊民宿站:房型 + 预订表单 + 实拍画廊",
     status: "概念项目",
     href: "/stay",
+    thumb: "/work/stay.jpg",
     tags: ["明亮色系", "表单交互", "真实摄影"],
   },
   {
@@ -60,6 +68,7 @@ const projects = [
     desc: "概念品牌 · 少儿美术品牌站:分龄课程 + 作品墙 + 试课报名",
     status: "概念项目",
     href: "/kids",
+    thumb: "/work/kids.jpg",
     tags: ["活泼排版", "表单交互", "真实摄影"],
   },
   {
@@ -67,6 +76,7 @@ const projects = [
     desc: "概念品牌 · 0–14 岁连锁齿科站:分龄路线 + 联动算价 + 预约表单",
     status: "概念项目",
     href: "/dental",
+    thumb: "/work/dental.jpg",
     tags: ["冷调明亮", "医疗合规文案", "真实摄影"],
   },
   {
@@ -74,6 +84,7 @@ const projects = [
     desc: "客户项目 · 7 个已上线 WooCommerce 站:8,214 款目录迁移 + 界面重建 + 验收回退",
     status: "客户项目",
     href: "/stores",
+    thumb: "/work/stores.jpg",
     tags: ["真实上线", "WooCommerce", "数据可核验"],
   },
 ];
@@ -106,6 +117,16 @@ export function Work() {
           >
             <Link href={project.href} className="group block h-full">
               <SpotlightCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1">
+                <div className="-mx-6 -mt-6 mb-5 overflow-hidden border-b border-white/10">
+                  <Image
+                    src={project.thumb}
+                    alt={`${project.title} 首屏截图`}
+                    width={800}
+                    height={450}
+                    priority={i < 4}
+                    className="aspect-video w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-semibold">{project.title}</h3>
                   {project.status === "进行中" ? (
