@@ -7,7 +7,7 @@ import { KidsSignup, KidsFooter } from "@/components/kids/kids-signup";
 export const metadata: Metadata = {
   title: "小满美术教室 | 3–12 岁少儿美术",
   description:
-    "小满美术教室 —— 别教孩子画「标准」的太阳。客户项目：少儿美术培训官网设计。",
+    "小满美术教室 —— 别教孩子画「标准」的太阳。概念品牌：少儿美术培训官网设计。",
 };
 
 export default function KidsPage() {

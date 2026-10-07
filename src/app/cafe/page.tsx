@@ -10,7 +10,7 @@ import { CafeFooter } from "@/components/cafe/cafe-footer";
 export const metadata: Metadata = {
   title: "屿雾咖啡 · 云南高山精品咖啡",
   description:
-    "屿雾咖啡 —— 把一座山的风味,装进一杯咖啡。客户项目：精品咖啡品牌官网设计。",
+    "屿雾咖啡 —— 把一座山的风味,装进一杯咖啡。概念品牌：精品咖啡品牌官网设计。",
 };
 
 export default function CafePage() {

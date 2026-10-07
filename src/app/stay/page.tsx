@@ -9,7 +9,7 @@ import { StayFooter } from "@/components/stay/stay-footer";
 export const metadata: Metadata = {
   title: "栖野 · 湖山民宿 | 海拔 2100 米的湖景木屋",
   description:
-    "栖野湖山 —— 12 间湖景木屋、私汤与篝火夜。客户项目：高山湖泊民宿官网设计。",
+    "栖野湖山 —— 12 间湖景木屋、私汤与篝火夜。概念品牌：高山湖泊民宿官网设计。",
 };
 
 export default function StayPage() {

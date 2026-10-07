@@ -35,7 +35,7 @@ export function BurnFooter() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-white/10 pt-6 font-mono text-[10px] text-white/35 sm:flex-row">
           <p>© 2026 燃点运动 BURN · 保留所有权利</p>
-          <p>客户项目 · 品牌官网设计</p>
+          <p>概念品牌 · 自主设计</p>
         </div>
       </div>
     </footer>

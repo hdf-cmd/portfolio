@@ -41,7 +41,7 @@ export function DentalFooter() {
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-white/10 pt-6 text-[10px] text-white/40 sm:flex-row">
           <p>© 2026 双叶儿童口腔（虚构演示品牌） · 每家门店独立《医疗机构执业许可证》口径为文案设定</p>
-          <p>客户项目 · 品牌官网设计 · 图片来自 Unsplash（免费商用授权）</p>
+          <p>概念品牌 · 自主设计 · 图片来自 Unsplash（免费商用授权）</p>
         </div>
       </div>
     </footer>

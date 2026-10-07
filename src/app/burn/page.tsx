@@ -10,7 +10,7 @@ import { BurnFooter } from "@/components/burn/burn-footer";
 export const metadata: Metadata = {
   title: "燃点运动 BURN · 练到燃点",
   description:
-    "燃点运动 —— 给不再找借口的你。客户项目：运动品牌官网设计。",
+    "燃点运动 —— 给不再找借口的你。概念品牌：运动品牌官网设计。",
 };
 
 export default function BurnPage() {

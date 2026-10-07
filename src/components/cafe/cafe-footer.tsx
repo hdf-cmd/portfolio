@@ -38,7 +38,7 @@ export function CafeFooter() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-[#C99A5B]/10 pt-6 text-[10px] text-[#8A7358] sm:flex-row">
           <p>© 2026 屿雾咖啡 · 保留所有权利</p>
-          <p>客户项目 · 品牌官网设计</p>
+          <p>概念品牌 · 自主设计</p>
         </div>
       </div>
     </footer>

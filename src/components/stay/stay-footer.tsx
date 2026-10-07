@@ -50,7 +50,7 @@ export function StayFooter() {
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-[#1F3A4D]/10 pt-6 text-[10px] text-[#9AA8B0] sm:flex-row">
           <p>© 2026 栖野 · 湖山民宿 · 保留所有权利</p>
-          <p>客户项目 · 品牌官网设计 · 图片来自 Unsplash / Openverse（CC 授权）</p>
+          <p>概念品牌 · 自主设计 · 图片来自 Unsplash / Openverse（CC 授权）</p>
         </div>
       </div>
     </footer>
