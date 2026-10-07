@@ -120,8 +120,11 @@ export function PlayerView() {
 
   const initAudio = useCallback(() => {
     if (audioCtxRef.current) return;
-    const ctx = new (window.AudioContext ||
-      (window as any).webkitAudioContext)();
+    const AudioCtor =
+      window.AudioContext ??
+      (window as unknown as { webkitAudioContext: typeof AudioContext })
+        .webkitAudioContext;
+    const ctx = new AudioCtor();
     const analyser = ctx.createAnalyser();
     analyser.fftSize = 128;
     analyser.smoothingTimeConstant = 0.85;

@@ -296,8 +296,17 @@ const AcidSquares: React.FC<AcidSquaresProps> = ({
       },
     });
     const postMesh = new Mesh(gl, { geometry, program: postProgram });
-    const pu = postProgram.uniforms as Record<string, { value: any }>;
-    const mu = program.uniforms as Record<string, { value: any }>;
+    type RTInstance = InstanceType<typeof RenderTarget>;
+    const pu = postProgram.uniforms as {
+      tMap: { value: RTInstance["texture"] };
+      iResolution: { value: Float32Array };
+      uDirection: { value: Float32Array };
+      uRadius: { value: number };
+      uGrain: { value: number };
+      uGrainIntensity: { value: number };
+      iTime: { value: number };
+    };
+    const mu = program.uniforms as Record<string, { value: unknown }>;
 
     let rtA: InstanceType<typeof RenderTarget> | null = null;
     let rtB: InstanceType<typeof RenderTarget> | null = null;
@@ -466,7 +475,7 @@ const AcidSquares: React.FC<AcidSquaresProps> = ({
     const ctx = ctxMap.get(container);
     if (!ctx) return;
     const { program } = ctx;
-    const u = program.uniforms as Record<string, { value: any }>;
+    const u = program.uniforms as Record<string, { value: unknown }>;
 
     u.uSpeed.value = speed;
     u.uWaveDepth.value = waveDepth;

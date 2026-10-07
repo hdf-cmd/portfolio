@@ -95,7 +95,7 @@ export function BurnStories() {
                 </div>
               </div>
               <blockquote className="mt-6 flex-1 text-sm leading-relaxed text-white/60">
-                "{s.quote}"
+                &ldquo;{s.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">
                 {s.from}
