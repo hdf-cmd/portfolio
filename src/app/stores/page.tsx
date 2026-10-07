@@ -6,7 +6,7 @@ import { StoreGrid } from "@/components/stores/store-grid";
 export const metadata: Metadata = {
   title: "WordPress 独立站交付 | 黄栋斐",
   description:
-    "7 个已上线的 WooCommerce 独立站：合计 8,214 款商品、278 个分类的目录迁移，以及首页、导航、页脚的重建与验收回退流程。",
+    "7 个已上线的 WooCommerce 独立站：合计 8,214 款商品、248 个分类的目录迁移，以及首页、导航、页脚的重建与验收回退流程。",
 };
 
 const STEPS = [
