@@ -69,6 +69,13 @@ const projects = [
     href: "/dental",
     tags: ["冷调明亮", "医疗合规文案", "真实摄影"],
   },
+  {
+    title: "WordPress 独立站交付",
+    desc: "客户项目 · 7 个已上线 WooCommerce 站:8,214 款目录迁移 + 界面重建 + 验收回退",
+    status: "客户项目",
+    href: "/stores",
+    tags: ["真实上线", "WooCommerce", "数据可核验"],
+  },
 ];
 
 export function Work() {
