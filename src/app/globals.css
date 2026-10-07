@@ -11,7 +11,13 @@
   --color-muted: #a1a1aa;
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  /* 2026-10-07 用户裁定：数字与标签全局改用无衬线（Geist Mono 的 0 带斜线，观感别扭）。
+     这里刻意让 font-mono 解析到 sans —— 代码块不受影响：Tailwind preflight 给
+     code/kbd/samp/pre 用的是 --default-mono-font-family，与 --font-mono 不是同一条线。 */
+  --font-mono: var(--font-geist-sans), system-ui, sans-serif;
+  /* 但代码块必须留真等宽：Tailwind preflight 里 --default-mono-font-family 默认就是
+     var(--font-mono)，上面改成 sans 会连带把 code/pre 变成比例字体。这里显式接回 Geist Mono。 */
+  --default-mono-font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --animate-gradient: gradient 8s ease infinite;
 }
@@ -35,6 +41,11 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+/* font-mono 已改指无衬线，比例数字默认不等宽 —— 补 tabular-nums 让统计数与价格对齐不跳动 */
+.font-mono {
+  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
