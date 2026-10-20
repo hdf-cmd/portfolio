@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+/* 数值取自 _baseline/abusaid-styles.json 的实测 computed 值 */
+@theme {
+  --color-night: #0d1224;
+  --color-surface: #11152c;
+  --color-surface-2: #1f223c;
+  --color-surface-3: #25213b;
+  --color-violet-deep: #1a1443;
+  --color-accent: #16f2b3;
+  --color-on-accent: #0d1224;
+  --color-ink: #ffffff;
+  --color-ink-dim: #a7b0c0;
+
+  --font-sans: "Inter Variable", "Noto Sans SC Variable", Inter,
+    "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --radius-card: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  /* 中文落到系统黑体后笔画偏肥，收紧字距压住松散感 */
+  letter-spacing: -0.02em;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+body {
+  background-color: var(--color-night);
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* 未放进 layer，优先级高于 Tailwind utilities——覆盖时用 ! 前缀，加 padding 类不会生效 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  padding: 0.5rem 0.9rem;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background-color: var(--color-surface-2);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  color: var(--color-ink);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid rgb(255 255 255 / 0.07);
+  border-radius: var(--radius-card);
+}
+
+.stack-card {
+  position: sticky;
+}
+
+.hero-glow {
+  position: relative;
+  /* 透明度必须压低：这三层是画在 shader 之上的内容层，alpha 高了会把背景整块盖掉 */
+  background:
+    radial-gradient(55% 45% at 22% 8%, rgb(22 242 179 / 0.10) 0%, transparent 65%),
+    radial-gradient(50% 50% at 88% 12%, rgb(27 44 104 / 0.30) 0%, transparent 70%),
+    radial-gradient(70% 60% at 50% 100%, rgb(26 20 67 / 0.22) 0%, transparent 75%);
+}
+
+/* 大面积低透明度渐变在 8bit 合成下会出现同心色带，压一层细噪点把台阶打散 */
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+}
+
+.hero-glow > div {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── 氛围动效层 ───────────────────────────────────────────────
+   「进场前先把元素藏起来」这条规则不在这里——它由 layout.tsx 的预绘脚本在运行时注入。
+   理由有两个：写死在 CSS 里的话，关掉 JS 的访客会看到一整页透明文字；
+   而让脚本去改 <html> 的 class，React 水合时比对 className 会直接报 hydration 错误。
+   脚本注入的是 <head> 里一个游离的 <style>，不属于 React 树，也一定早于首绘生效。 */
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  [data-tilt] {
+    position: relative;
+    transform: perspective(760px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition:
+      transform 0.25s ease-out,
+      border-color 0.25s ease-out;
+  }
+
+  [data-tilt]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(
+      260px 260px at var(--glare-x, 50%) var(--glare-y, 50%),
+      rgb(255 255 255 / 0.1),
+      transparent 62%
+    );
+  }
+
+  [data-tilt]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* 光泽扫过：纯 CSS，没有 JS 也成立 */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent, rgb(255 255 255 / 0.09), transparent);
+  transform: translateX(-160%);
+  transition: transform 0.75s ease-out;
+}
+.sheen:hover::before {
+  transform: translateX(260%);
+}
+
+.cursor-glow {
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  mix-blend-mode: screen;
+  will-change: transform;
+  background: radial-gradient(
+    circle,
+    rgb(22 242 179 / 0.1) 0%,
+    rgb(82 39 255 / 0.08) 38%,
+    transparent 68%
+  );
+}
+.cursor-glow[data-live="1"] {
+  opacity: 1;
+}
+
+.section-progress {
+  position: fixed;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.section-progress a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.section-progress-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.22);
+  transition:
+    background-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+.section-progress-label {
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--color-ink-dim);
+  opacity: 0;
+  transform: translateX(6px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.section-progress a:hover .section-progress-label,
+.section-progress a[aria-current="true"] .section-progress-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+.section-progress a[aria-current="true"] .section-progress-dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgb(22 242 179 / 0.16);
+  transform: scale(1.2);
+}
+
+/* 截图 3D 卡片堆：透视放在容器上，位移与层级放在每张卡片 */
+.shot-deck {
+  perspective: 1100px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.shot-deck:active {
+  cursor: grabbing;
+}
+.shot-deck:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+.shot-deck-card {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.35s;
+  box-shadow: 0 18px 40px -18px rgb(0 0 0 / 0.75);
+  will-change: transform;
+}
+/* img 默认可拖，浏览器会把指针流交给 HTML5 拖放，结果是 pointercancel 立刻杀掉我们的拖拽 */
+.shot-deck img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* 架构图连接线里的方向光点：只在组件判定允许动效时才渲染出来 */
+.flow-dot {
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes flow-down {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(24px); opacity: 0; }
+}
+@keyframes flow-up {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(-24px); opacity: 0; }
+}
+.flow-down { animation-name: flow-down; }
+.flow-up { animation-name: flow-up; }
+
+@media (max-width: 1023px) {
+  .section-progress {
+    display: none;
+  }
+}

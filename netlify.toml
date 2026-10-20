@@ -1,0 +1,9 @@
+# 本站是纯静态导出（next build → out/），产物就是普通 HTML/JS/图片，
+# 不需要 Netlify 的 Next.js Runtime。不关掉它，Netlify 会自动装上运行时插件，
+# 那个插件要求服务端 / Edge 形态，碰上 output: "export" 必挂（2026-10-20 实测）。
+[build]
+  command = ""
+  publish = "out"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"

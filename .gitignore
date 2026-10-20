@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+build
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+*.tsbuildinfo
+next-env.d.ts
+_baseline
+
+# Netlify CLI 的本地部署缓存，不是源码
+.netlify
